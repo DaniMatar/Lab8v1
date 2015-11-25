@@ -28,9 +28,20 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return view('welcome');
-	}
+
+
+
+
+    public function index()
+    {
+      $first = 'Dani';
+        $last = 'Matar';
+
+
+        return view('pages.welcome', compact('first', 'last')) ;
+    }
+
+
+
 
 }

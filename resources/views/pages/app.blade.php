@@ -34,11 +34,19 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Home</a></li>
+
+                    <li><a href="{{ url('/contact') }}">Contact</a></li>
+
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
 					@if (Auth::guest())
+
+
+                        <li><a href="{{ url('/articles') }}">Articles</a></li>
+
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
+
 						<li><a href="{{ url('/auth/register') }}">Register</a></li>
 					@else
 						<li class="dropdown">

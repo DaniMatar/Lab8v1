@@ -13,7 +13,29 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('contact', 'PagesController@contact');
+
+
+Route::get('login', 'PagesController@login');
+
+
+Route::get('register', 'PagesController@register');
+
+
+
+Route::get('articles', 'PagesController@articles');
+
+
+Route::get('articles/create', 'PagesController@create');
+
+
+Route::get('articles/{id}', 'PagesController@show');
+
+Route::post('articles', 'PagesController@store');
+
+
+
+
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
