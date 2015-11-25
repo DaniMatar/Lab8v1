@@ -39,7 +39,7 @@ class PagesController extends Controller {
 
     public function articles()
     {
-        $articles = \App\Article::all();
+        $articles = Article::latest('published_at')->get();
 
         return view ('articles.index', compact('articles'));
     }
@@ -47,6 +47,8 @@ class PagesController extends Controller {
     public function show($id)
     {
         $article = Article::findOrFail($id);
+
+        dd($article-> published_at);
 
 
         return view ('articles.show', compact('article'));
@@ -64,14 +66,14 @@ class PagesController extends Controller {
     public function store()
     {
 
-        $input = Request::all();
-
-        $input['published_at'] = Carbon::now();
-
-        Article::create($input);
+        Article::create(Request::all());
 
 
          return redirect ('articles');
     }
 
+
+
+
 }
+

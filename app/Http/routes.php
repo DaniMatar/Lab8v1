@@ -37,6 +37,9 @@ Route::post('articles', 'PagesController@store');
 
 
 
+
+
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
