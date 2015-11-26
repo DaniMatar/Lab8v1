@@ -4,6 +4,7 @@ use App\Article;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\CreateArticleRequest;
 use Carbon\Carbon;
 use Request;
 
@@ -22,10 +23,6 @@ class PagesController extends Controller {
         return view('pages.contact');
     }
 
-    public function index()
-    {
-        return view('home');
-    }
 
     public function login()
     {
@@ -37,40 +34,6 @@ class PagesController extends Controller {
         return view('auth.register');
     }
 
-    public function articles()
-    {
-        $articles = Article::latest('published_at')->get();
-
-        return view ('articles.index', compact('articles'));
-    }
-
-    public function show($id)
-    {
-        $article = Article::findOrFail($id);
-
-        dd($article-> published_at);
-
-
-        return view ('articles.show', compact('article'));
-    }
-
-
-
-    public function create()
-    {
-
-        return view ('articles.create');
-    }
-
-
-    public function store()
-    {
-
-        Article::create(Request::all());
-
-
-         return redirect ('articles');
-    }
 
 
 

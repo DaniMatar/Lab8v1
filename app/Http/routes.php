@@ -13,25 +13,18 @@
 
 Route::get('/', 'WelcomeController@index');
 
+
+
 Route::get('contact', 'PagesController@contact');
-
-
 Route::get('login', 'PagesController@login');
-
-
 Route::get('register', 'PagesController@register');
 
 
 
-Route::get('articles', 'PagesController@articles');
 
 
-Route::get('articles/create', 'PagesController@create');
+Route::resource('articles','ArticleController');
 
-
-Route::get('articles/{id}', 'PagesController@show');
-
-Route::post('articles', 'PagesController@store');
 
 
 
