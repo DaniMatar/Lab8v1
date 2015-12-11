@@ -35,6 +35,17 @@ class PagesController extends Controller {
     }
 
 
+    public function adminlogin()
+    {
+
+
+        return view ('pages.adminlogin');
+    }
+
+
+
+
+
 
 
 

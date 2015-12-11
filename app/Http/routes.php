@@ -16,8 +16,24 @@ Route::get('/', 'WelcomeController@index');
 
 
 Route::get('contact', 'PagesController@contact');
+
 Route::get('login', 'PagesController@login');
 Route::get('register', 'PagesController@register');
+
+
+
+
+
+
+Route::get('adminlogin',['middleware' => 'admin', function()
+{
+
+    return 'This page ay only be viewed if your Admin';
+
+    //return view('pages.adminlogin');
+
+}]);
+
 
 
 
@@ -26,9 +42,9 @@ Route::get('register', 'PagesController@register');
 Route::resource('articles','ArticleController');
 
 
+Route::resource('webpages','WebpagesController');
 
-
-
+Route::resource('areas','AreasController');
 
 
 
@@ -37,3 +53,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+
+//Route::get('foo/{bar}', function() );
+

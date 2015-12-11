@@ -24,11 +24,15 @@
     <body>
     <div class="container">
         <div class="content">
+        <div class="content">
             <div class="title">Articles</div>
 
         </div>
     </div>
     <hr/>
+
+    <li><a href="{{ url('/articles/create') }}">Create Article</a></li>
+
 
     @foreach($articles as $article)
 
@@ -37,7 +41,7 @@
         <h2>
 
 
-            <a href="{{ url ('/articles',$article->id)}}">{{$article->title}}</a> </h2>
+            <a href="{{ url ('/articles/{id}', $article->id)}}">{{$article->title}}</a> </h2>
 
             <div class="body" >{{$article->body}}</div>
 
@@ -48,7 +52,7 @@
 
 
     @endforeach
-
+</div>
     </body>
 @stop
 </html>

@@ -1,3 +1,5 @@
+
+
 <div class ="form-group">
 
     {!! Form::label('title', 'Title: ') !!}
@@ -15,6 +17,16 @@
 </div>
 
 
+<div class ="form-group">
+
+    {!! Form::label('tag_list', 'Tags: ') !!}
+
+    {!! Form::select('tag_list[]', $tags,null, ['id' => 'tag_list','class'=> 'form-control','multiple',]) !!}
+
+</div>
+
+
+
 
 <div class ="form-group">
 
@@ -25,6 +37,9 @@
 </div>
 
 
+
+
+
 <div class ="form-group">
 
     {!! Form::label('published_at', 'Published on: ') !!}
@@ -32,3 +47,16 @@
     {!! Form::input('date','published_at', date('Y-m-d'), ['class'=> 'form-control']) !!}
 
 </div>
+
+<script>
+
+    $('#tag_list').select2()
+    ({
+        placeholder: 'Choose Tag'
+
+
+    });
+
+
+
+</script>

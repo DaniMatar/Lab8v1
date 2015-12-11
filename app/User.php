@@ -33,6 +33,28 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 
 
+    public function articles()
+    {
+        return $this->hasMany('App\Article');
+    }
+
+public function  isAdmin()
+
+{
+    //    if (user()-> email = 'admin@hotmail.com')
+//    {
+//        return true;
+//    }
+
+    return true;
+
+
+}
+
+    public function  password($password)
+   {
+       $this->attributes['password'] = bcrypt($password);
+   }
 
 
 

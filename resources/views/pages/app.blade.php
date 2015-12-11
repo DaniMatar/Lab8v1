@@ -7,7 +7,7 @@
 	<title>Laravel</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
+    <!--  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css"  />
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -16,6 +16,8 @@
 	<!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
 	<![endif]-->
 </head>
 <body>
@@ -33,9 +35,8 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
 
-                    <li><a href="{{ url('/contact') }}">Contact</a></li>
+
 
 				</ul>
 
@@ -43,28 +44,89 @@
 					@if (Auth::guest())
 
 
+
+                        <li><a href="{{ url('/') }}">Home</a></li>
+
+
+
+
+
+                        <li><a href="{{ url('/adminlogin') }}">Admin Login</a></li>
+
+
                         <li><a href="{{ url('/articles') }}">Articles</a></li>
+
+
 
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
 
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
+                        <li><a href="{{ url('/adminlogin') }}">Admin Login</a></li>
+
+
+
+
+
 					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-							</ul>
-						</li>
-					@endif
+
+
+                        <li><a href="{{ url('/') }}">Home</a></li>
+
+                        <li><a href="{{ url('/areas') }}">Areas</a></li>
+                        <li><a href="{{ url('/areas') }}">CSS Template</a></li>
+
+                         <li><a href="{{ url('/articles') }}">Articles</a></li>
+
+                        <li><a href="{{ url('/webpages') }}">Pages</a></li>
+
+
+
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
+                            </ul>
+                        </li>
+
+
+
+
+                    @endif
 				</ul>
 			</div>
 		</div>
 	</nav>
+@include('partials.flash')
 
 	@yield('content')
 
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+
+    <script>
+
+        $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+    </script>
+
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 	<!-- Scripts -->
+
+
+
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
 </body>
 </html>
