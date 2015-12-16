@@ -54,7 +54,7 @@
 
 
 
-    <form action="<?php echo  $Area-> id?>/edit/">
+    <form action="<?php echo  $Area-> area_id?>/edit/">
         <input type="submit" value="Edit Article">
     </form>
 
@@ -63,7 +63,7 @@
 
     {!! Form::open([
     'method' => 'DELETE',
-    'route' => ['areas.destroy',  $Area->id]
+    'route' => ['areas.destroy',  $Area->area_id]
     ]) !!}
     {!! Form::submit('Delete this  Area?', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}

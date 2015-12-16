@@ -31,19 +31,19 @@
     </div>
     <hr/>
 
-    <li><a href="{{ url('/areas/create') }}">Create CSS </a></li>
+    <li><a href="{{ url('/css/create') }}">Create CSS </a></li>
 
 
-    @foreach($CSSs as $CSS)
+    @foreach($css as $CSS)
 
         <article>
 
         <h2>
 
 
-            <a href="{{ url ('/css/show', $$CSS->id)}}">{{$$CSS->title}}</a> </h2>
+            <a href="{{ url ('/css/show', $$CSS->css_id)}}">{{$$CSS->css_name}}</a> </h2>
 
-            <div class="body" >{{$$CSS->body}}</div>
+            <div class="body" >{{$$CSS->content}}</div>
 
 
 

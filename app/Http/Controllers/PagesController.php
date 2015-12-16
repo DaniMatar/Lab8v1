@@ -10,14 +10,6 @@ use Request;
 
 class PagesController extends Controller {
 
-
-
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
-
     public function contact()
     {
         return view('pages.contact');
@@ -37,8 +29,6 @@ class PagesController extends Controller {
 
     public function adminlogin()
     {
-
-
         return view ('pages.adminlogin');
     }
 

@@ -48,9 +48,6 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
 
 
-
-
-
                         <li><a href="{{ url('/adminlogin') }}">Admin Login</a></li>
 
 
@@ -60,7 +57,7 @@
 
 						<li><a href="{{ url('/auth/login') }}">Login</a></li>
 
-                        <li><a href="{{ url('/adminlogin') }}">Admin Login</a></li>
+
 
 
 
@@ -72,7 +69,7 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
 
                         <li><a href="{{ url('/areas') }}">Areas</a></li>
-                        <li><a href="{{ url('/areas') }}">CSS Template</a></li>
+                        <li><a href="{{ url('/cssTempTablelate') }}">CSS Template</a></li>
 
                          <li><a href="{{ url('/articles') }}">Articles</a></li>
 

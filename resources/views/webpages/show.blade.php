@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title><div class="title">{{$page->page_name}}</div></title>
+    <title>Laravel</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -24,7 +24,7 @@
     <body>
     <div class="container">
         <div class="content">
-            <h1><div class="title">{{$article->title}}</div></h1>
+            <h1><div class="title">{{$page->page_name}}</div></h1>
 
         </div>
     </div>
@@ -34,8 +34,8 @@
 
     <article>
 
-
-        <div class="body" >{{$article->body}}</div>
+        <h1><div class="title">{{$page->page_name}}</div></h1>
+        <div class="body" >{{$page->page_id}}</div>
 
 
 
@@ -43,21 +43,49 @@
     </article>
 
 
-    @unless ($article->tags->isEmpty())
-        <h5>Tags:</h5>
-        <ul>
-            @foreach ($article->tags as $tag)
+    {{--@unless ($article->tags->isEmpty())--}}
+    {{--<h5>Tags:</h5>--}}
+    {{--<ul>--}}
+    {{--@foreach ($article->tags as $tag)--}}
 
-                <li>{{$tag -> name }}</li>
+    {{--<li>{{$tag -> name }}</li>--}}
 
 
-            @endforeach
+    {{--@endforeach--}}
 
-        </ul>
-    @endunless
+    {{--</ul>--}}
+    {{--@endunless--}}
 
     </body>
 
 
 
 
+
+
+
+
+
+
+    <form action="<?php echo $page-> page_id?>/edit/">
+        <input type="submit" value="Edit Page">
+    </form>
+
+
+
+
+
+    {!! Form::open([
+    'method' => 'DELETE',
+    'route' => ['webpages.destroy', $page->page_id]
+    ]) !!}
+    {!! Form::submit('Delete this Page?', ['class' => 'btn btn-danger']) !!}
+    {!! Form::close() !!}
+
+
+
+@stop
+
+
+
+</html>

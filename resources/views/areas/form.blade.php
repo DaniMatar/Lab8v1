@@ -42,15 +42,15 @@
 
 </div>
 
-<script>
+{{--<script>--}}
 
-    $('#tag_list').select2()
-    ({
-        placeholder: 'Choose Tag'
-
-
-    });
+    {{--$('#tag_list').select2()--}}
+    {{--({--}}
+        {{--placeholder: 'Choose Tag'--}}
 
 
+    {{--});--}}
 
-</script>
+
+
+{{--</script>--}}

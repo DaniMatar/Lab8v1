@@ -16,23 +16,25 @@ class CreateWebpagesTable extends Migration {
 		{
 			$table->increments('page_id');
             $table->String('page_name');
+            $table->String('active');
+
+            $table->timestamps();
             $table->timestamp('published_at');
 
-            $table->integer('created_by');
-            $table->integer('modified_by');
 
 
 
 
-            $table->foreign('created_by')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+            $table->unsignedinteger('modified_by')->nullable();
+            $table->foreign('modified_by')-> references('id')->on('users')->onDelete('cascade');
 
-            $table->foreign('modified_by')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+
+            $table->unsignedinteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+
+            $table->unsignedinteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 

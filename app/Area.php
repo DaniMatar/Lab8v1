@@ -15,6 +15,7 @@ class Area extends Model {
 
     ];
 
+    protected $primaryKey =  'area_id';
 
     protected $date = ['published_at'];
 

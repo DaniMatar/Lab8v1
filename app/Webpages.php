@@ -16,6 +16,8 @@ class Webpages extends Model {
     ];
 
 
+    protected $primaryKey =  'page_id';
+
     protected $date = ['published_at'];
 
 

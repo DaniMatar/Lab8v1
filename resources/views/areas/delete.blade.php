@@ -7,7 +7,7 @@
     <h1>Edit: {!! $Area->title  !!}</h1>
 
 
-    {!! Form::model( $Area, ['method' => 'DELETE','route' =>['areas.destroy',  $Area->id]]) !!}
+    {!! Form::model( $Area, ['method' => 'DELETE','route' =>['areas.destroy',  $Area->area_id]]) !!}
 
 
     @include('areas.form' , ['submitButtonText' => 'Delete  Area'])

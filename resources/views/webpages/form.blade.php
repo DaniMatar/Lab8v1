@@ -1,19 +1,15 @@
 
 
-<div class ="form-group">
-
-    {!! Form::label('title', 'Title: ') !!}
-
-    {!! Form::text('title', null, ['class'=> 'form-control']) !!}
-
+<div class="form-group">
+    {!! Form::label('page_name','Name: ') !!}
+    {!! Form::text('page_name',null,['class'=>'form-control']) !!}
 </div>
 
-<div class ="form-group">
 
-    {!! Form::label('body', 'Body: ') !!}
 
-    {!! Form::textarea('body', null, ['class'=> 'form-control']) !!}
-
+<div class="form-group">
+    {!! Form::label('active','Active: ') !!}
+    {!! Form::select('active', array('Y' => 'Yes', 'N' => 'No'))!!}
 </div>
 
 
@@ -21,35 +17,19 @@
 
 
 
-<div class ="form-group">
+
+
+<div class="form-group">
+
 
     {!! Form::submit( $submitButtonText , ['class'=> 'btn btn-primary form-control']) !!}
 
 
-
 </div>
 
+{{--@section('footer')--}}
 
-
-
-
-<div class ="form-group">
-
-    {!! Form::label('published_at', 'Published on: ') !!}
-
-    {!! Form::input('date','published_at', date('Y-m-d'), ['class'=> 'form-control']) !!}
-
-</div>
-
-{{--<script>--}}
-
-    {{--$('#tag_list').select2()--}}
-    {{--({--}}
-        {{--placeholder: 'Choose Tag'--}}
-
-
-    {{--});--}}
-
-
-
-{{--</script>--}}
+    {{--<script>--}}
+        {{--$('#tag_list').select2({placeholder:'chose tag',tags:true});--}}
+    {{--</script>--}}
+{{--@endsection--}}

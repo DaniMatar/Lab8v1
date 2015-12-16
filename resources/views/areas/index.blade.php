@@ -41,7 +41,7 @@
         <h2>
 
 
-            <a href="{{ url ('/areas/show', $Area->id)}}">{{$Area->title}}</a> </h2>
+            <a href="{{ url ('/areas/show', $Area->area_id)}}">{{$Area->title}}</a> </h2>
 
             <div class="body" >{{$Area->body}}</div>
 

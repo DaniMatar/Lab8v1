@@ -41,7 +41,7 @@
         <h2>
 
 
-            <a href="{{ url ('/articles/{id}', $article->id)}}">{{$article->title}}</a> </h2>
+            <a href="{{ url ('/articles/'. $article->article_id )}}">{{$article->title}}</a> </h2>
 
             <div class="body" >{{$article->body}}</div>
 

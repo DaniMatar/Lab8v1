@@ -1,20 +1,22 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
-class CSS extends Model {
+class CSSTemp extends Model {
 
 
     protected $fillable = [
 
 
-        'title',
-        'body',
-        'published_at',
-        'user_id'
+    'css_name',
+    'active',
+    'content',
+    'description',
+];
 
-    ];
 
+    protected $primaryKey =  'css_id';
 
     protected $date = ['published_at'];
 

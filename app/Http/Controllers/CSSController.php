@@ -1,15 +1,15 @@
 <?php namespace App\Http\Controllers;
 
-use App\Article;
+use App\CSSTemp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ArticleRequest;
+use App\Http\Requests\CssRequest;
 use App\Tag;
 use Carbon\Carbon;
 use Auth;
 
 
-class ArticleController extends Controller
+class CSSController extends Controller
 {
 
     /**
@@ -20,15 +20,15 @@ class ArticleController extends Controller
 
     public function __construct()
     {
-//            $this->middleware('auth', ['only' =>  array('create','edit','destroy')]);
+        $this->middleware('auth', ['only' =>  array('create','edit','destroy')]);
 
     }
 
     public function index()
     {
-        $articles = Article::latest('published_at')->published()->get();
+        $CssT = CSSTemp::latest('published_at')->published()->get();
 
-        return view('articles.index', compact('articles'));
+        return view('CssTemplate.index', compact('CssT'));
     }
 
 
@@ -40,13 +40,13 @@ class ArticleController extends Controller
     public function create()
     {
 
-            $tags = Tag::lists('name','id');
+        //$tags = Tag::lists('name','id');
 
-            // if (Auth::guest()) {
-            //return redirect('articles');
+        // if (Auth::guest()) {
+        //return redirect('articles');
 
-            //}
-            return view('articles.create', compact('tags'));
+        //}
+        return view('CssTemplate.create');
 
 
     }
@@ -56,18 +56,18 @@ class ArticleController extends Controller
      *
      * @return Response
      */
-    public function store(ArticleRequest $request)
+    public function store(CssRequest $request)
     {
 
 
 
-        $this->createArticle($request);
+        $this->createCss($request);
 
 
         session()->flash('flash_message', 'Your Article has been created');
         session()->flash('flash_message_important', true);
 
-        return redirect('articles')-> with ([
+        return redirect('CssTemplate')-> with ([
 
             'flash_message'=>'Your Article has been created',
             'flash_message_important' => true
@@ -80,10 +80,10 @@ class ArticleController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function show($article_id)
+    public function show($css_id)
     {
-        $article = Article::where('article_id', $article_id)->first();
-        return view('articles.show', compact('article'));
+        $CssT = CSSTemp::where('css_id', $css_id)->first();
+        return view('CssTemplate.show', compact('CssT'));
     }
 
     /**
@@ -92,23 +92,23 @@ class ArticleController extends Controller
      * @param  int $id
      * @return Response
      */
-    public function edit(Article $article, Request $request)
+    public function edit(CSSTemp $CssT, Request $request)
 
     {
         $name = $request->user()->user_type;
         if ($name === 'User'){
-            if ($request->user()->user_id === $article->user_id){
+            if ($request->user()->user_id === $CssT->user_id){
                 $tags = Tag::lists('name','id');
-                return view('articles.edit', compact('article', 'tags'));
+                return view('CssTemplate.edit', compact('article', 'tags'));
             }
             else{
-                return redirect('/articles');
+                return redirect('/CssTemplate');
             }
 
 
         }else {
             $tags = Tag::lists('name', 'id');
-            return view('articles.edit', compact('article', 'tags'));
+            return view('CssTemplate.edit', compact('article', 'tags'));
         }
     }
 
@@ -119,16 +119,16 @@ class ArticleController extends Controller
      * @return Response
      */
 
-    public function update(Request $request, $article_id)
+    public function update(Request $request, $css_id)
     {
-        $article = Article::where('article_id', $article_id)->first();
+        $CssT = CSSTemp::where('css_id', $css_id)->first();
 
-        $article->update($request->all());
+        $CssT->update($request->all());
 
-        $this->syncTags($article, $request->input('tag_list'));
+       // $this->syncTags($CssT, $request->input('tag_list'));
 
 
-        return redirect('articles');
+        return redirect('CssTemplate');
     }
 
     /**
@@ -143,18 +143,18 @@ class ArticleController extends Controller
 
 
 
-    public function destroy($article_id)
+    public function destroy($css_id)
     {
         //
 
-        $article = Article::where('article_id', $article_id)->first();
-        $article-> delete();
+        $CssT = CSSTemp::where('css_id', $css_id)->first();
+        $CssT-> delete();
 
 
         session()->flash('flash_message', 'Your Article has been Deleted');
         session()->flash('flash_message_important', true);
 
-        return redirect('/articles')-> with ([
+        return redirect('/CssTemplate')-> with ([
 
             'flash_message'=>'Your Article has been Deleted',
             'flash_message_important' => true
@@ -169,24 +169,20 @@ class ArticleController extends Controller
      * @param Article $article
      * @param ArticleRequest $request
      */
-    public function syncTags(Article $article, array $tags)
+
+
+
+
+
+    private function createCss(CssRequest $request)
     {
-        $article->tags()->sync($tags);
-    }
+        $CssT = Auth::user()->CssT()->create($request->all());
 
 
+       // $this->syncTags($CssT, $request->input('tag_list'));
 
 
-
-    private function createArticle(ArticleRequest $request)
-    {
-        $article = Auth::user()->articles()->create($request->all());
-
-
-        $this->syncTags($article, $request->input('tag_list'));
-
-
-        return $article;
+        return $CssT;
     }
 }
 

@@ -4,7 +4,7 @@
 @section('content')
 
 
-    <h1>Edit: {!!$article->title  !!}</h1>
+    <h1>Edit: {!!$page->page_name  !!}</h1>
 
 
     {!! Form::model($page, ['method' => 'PATCH','route' =>['webpages.update', $page->id]]) !!}

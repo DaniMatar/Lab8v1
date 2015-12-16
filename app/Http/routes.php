@@ -21,31 +21,34 @@ Route::get('login', 'PagesController@login');
 Route::get('register', 'PagesController@register');
 
 
+Route::get('adminlogin',['middleware' => 'admincheck', function(){
 
 
-
-
-Route::get('adminlogin',['middleware' => 'admin', function()
-{
-
-    return 'This page ay only be viewed if your Admin';
-
-    //return view('pages.adminlogin');
+    return view('pages.adminlogin');
 
 }]);
 
 
 
+Route::get('webpages', [
+    'middleware' => 'admincheck',
+    'uses' => 'WebpagesController@index'
+]);
+
+Route::get('articles', ['uses' => 'ArticleController@index']);
+Route::get('articles/destroy', ['uses' => 'ArticleController@destroy']);
+Route::get('articles/{article}', ['uses' => 'ArticleController@show']);
 
 
+Route::get('areas', [
+    'middleware' => 'admincheck',
+    'uses' => 'AreasController@index'
+]);
 
-Route::resource('articles','ArticleController');
-
-
-Route::resource('webpages','WebpagesController');
-
-Route::resource('areas','AreasController');
-
+Route::get('cssTemplate', [
+    'middleware' => 'admincheck',
+    'uses' => 'CSSController@index'
+]);
 
 
 

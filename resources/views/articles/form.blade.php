@@ -17,13 +17,6 @@
 </div>
 
 
-<div class ="form-group">
-
-    {!! Form::label('tag_list', 'Tags: ') !!}
-
-    {!! Form::select('tag_list[]', $tags,null, ['id' => 'tag_list','class'=> 'form-control','multiple',]) !!}
-
-</div>
 
 
 
@@ -47,16 +40,3 @@
     {!! Form::input('date','published_at', date('Y-m-d'), ['class'=> 'form-control']) !!}
 
 </div>
-
-<script>
-
-    $('#tag_list').select2()
-    ({
-        placeholder: 'Choose Tag'
-
-
-    });
-
-
-
-</script>

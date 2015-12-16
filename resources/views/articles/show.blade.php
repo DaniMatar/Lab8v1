@@ -43,18 +43,18 @@
         </article>
 
 
-@unless ($article->tags->isEmpty())
-<h5>Tags:</h5>
-    <ul>
-        @foreach ($article->tags as $tag)
+{{--@unless ($article->tags->isEmpty())--}}
+{{--<h5>Tags:</h5>--}}
+    {{--<ul>--}}
+        {{--@foreach ($article->tags as $tag)--}}
 
-            <li>{{$tag -> name }}</li>
+            {{--<li>{{$tag -> name }}</li>--}}
 
 
-            @endforeach
+            {{--@endforeach--}}
 
-    </ul>
-@endunless
+    {{--</ul>--}}
+{{--@endunless--}}
 
     </body>
 
@@ -66,7 +66,7 @@
 
 
 
-    <form action="<?php echo $article-> id?>/edit/">
+    <form action="<?php echo $article-> article_id?>/edit/">
         <input type="submit" value="Edit Article">
     </form>
 
@@ -75,7 +75,7 @@
 
     {!! Form::open([
     'method' => 'DELETE',
-    'route' => ['articles.destroy', $article->id]
+    'route' => ['articles.destroy', $article->article_id]
     ]) !!}
     {!! Form::submit('Delete this Article?', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}

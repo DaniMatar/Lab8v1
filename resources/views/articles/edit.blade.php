@@ -7,7 +7,7 @@
     <h1>Edit: {!!$article->title  !!}</h1>
 
 
-    {!! Form::model($article, ['method' => 'PATCH','route' =>['articles.update', $article->id]]) !!}
+    {!! Form::model($article, ['method' => 'PATCH','route' =>['articles.update', $article->article_id]]) !!}
 
 
     @include('articles.form' , ['submitButtonText' => 'Update Article'])

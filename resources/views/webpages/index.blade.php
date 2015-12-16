@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Articles</title>
+    <title>Pages</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -33,16 +33,16 @@
     <li><a href="{{ url('/webpages/create') }}">Create Page</a></li>
 
 
-    @foreach($pages as $Webpage)
+    @foreach($pages as $page)
 
         <article>
 
             <h2>
 
 
-                <a href="{{ url ('/articles',$Webpagee->id)}}">{{$Webpage->title}}</a> </h2>
+                <a href="{{ url ('/webpages',$page-> page_id)}}">{{$page->page_name}}</a> </h2>
 
-            <div class="body" >{{$Webpage->body}}</div>
+            <div class="body" >{{ $page-> page_id}}</div>
 
 
 
