@@ -48,6 +48,9 @@
                         <li><a href="{{ url('/') }}">Home</a></li>
 
 
+                        <li><a href="{{ url('/queries') }}">Search For Article</a></li>
+
+
                         <li><a href="{{ url('/adminlogin') }}">Admin Login</a></li>
 
 
@@ -66,10 +69,13 @@
 					@else
 
 
+                        <li><a href="{{ url('/queries') }}">Search For Article</a></li>
+
+
                         <li><a href="{{ url('/') }}">Home</a></li>
 
                         <li><a href="{{ url('/areas') }}">Areas</a></li>
-                        <li><a href="{{ url('/cssTempTablelate') }}">CSS Template</a></li>
+                        <li><a href="{{ url('/cssTemplate') }}">CSS Template</a></li>
 
                          <li><a href="{{ url('/articles') }}">Articles</a></li>
 

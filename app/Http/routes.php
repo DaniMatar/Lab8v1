@@ -20,6 +20,15 @@ Route::get('contact', 'PagesController@contact');
 Route::get('login', 'PagesController@login');
 Route::get('register', 'PagesController@register');
 
+//
+Route::resource('article', 'ArticlesController');
+
+
+
+
+Route::resource('queries', 'QueryController');
+
+
 
 Route::get('adminlogin',['middleware' => 'admincheck', function(){
 
@@ -38,6 +47,9 @@ Route::get('webpages', [
 Route::get('articles', ['uses' => 'ArticleController@index']);
 Route::get('articles/destroy', ['uses' => 'ArticleController@destroy']);
 Route::get('articles/{article}', ['uses' => 'ArticleController@show']);
+
+
+
 
 
 Route::get('areas', [

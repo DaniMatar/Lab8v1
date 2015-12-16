@@ -40,13 +40,13 @@ class ArticleController extends Controller
     public function create()
     {
 
-            $tags = Tag::lists('name','id');
+
 
             // if (Auth::guest()) {
             //return redirect('articles');
 
             //}
-            return view('articles.create', compact('tags'));
+            return view('articles.create');
 
 
     }

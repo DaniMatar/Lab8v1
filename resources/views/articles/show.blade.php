@@ -66,16 +66,19 @@
 
 
 
-    <form action="<?php echo $article-> article_id?>/edit/">
+    <form action="<?php echo $article -> article_id?>/edit/">
         <input type="submit" value="Edit Article">
     </form>
 
 
 
 
+
+
+
     {!! Form::open([
     'method' => 'DELETE',
-    'route' => ['articles.destroy', $article->article_id]
+    'route' => ['article.destroy', $article->article_id]
     ]) !!}
     {!! Form::submit('Delete this Article?', ['class' => 'btn btn-danger']) !!}
     {!! Form::close() !!}
